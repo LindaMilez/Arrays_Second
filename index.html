@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <title>Multiple-Arrays</title>
+  <body>
+    <h2>Multiple Arrays</h2>
+    <p>Create an array with multiple objects</p>
+    <p id="Employee"></p>
+    <script>
+      var ids = [1, 2, 3, 4, 5, 6, 7, 8];
+      var names = [
+        "Abuchi",
+        "Joseph",
+        "Meya",
+        "Lawrence",
+        "Monica",
+        "Fishbone",
+        "Gidi",
+        "Imole",
+      ];
+      var ages = ["40", "42", "35", "51", "30", "60", "25", "55"];
+      var designations = [
+        "Logistics",
+        "Admin",
+        "Developer",
+        "Accountant",
+        "Clerk",
+        "Cleaner",
+        "Secretary",
+        "Security",
+      ];
+      var salaries = [
+        "30000",
+        "65000",
+        "28000",
+        "40000",
+        "28000",
+        "20000",
+        "85000",
+        "71000",
+      ];
+      var phones = [
+        "1234567",
+        "2134567",
+        "3214567",
+        "4321567",
+        "5432167",
+        "6543217",
+        "7654321",
+        "87654321",
+      ];
+
+      var employees = ids.map((id, index) => {
+        return {
+          id: id,
+          name: names[index],
+          age: ages[index],
+          designation: designations[index],
+          salary: salaries[index],
+          phone: phones[index],
+        };
+      });
+
+      console.log(employees);
+
+      // filter all 'Developers'
+      let Developer_employees = employees.filter(function (employee) {
+        return employee.designation == "Developer";
+      });
+      console.log(Developer_employees);
+
+      // filter employees below the age of '30'
+      var Age_employees = employees.filter((id) => id.age < 30);
+      console.log("All ages < 30:");
+      Age_employees.forEach((id) => {
+        console.log(id.age);
+      });
+
+      //  get all employees with salary above '70000'
+      var Salary_above_seventyk = employees.filter((id) => id.salary > 70000);
+      console.log("All salaries > 70000:");
+      Salary_above_seventyk.forEach((id) => {
+        console.log(id.salary);
+      });
+
+      // finding the employee with id '5'
+      const object = employees.find((obj) => obj.id === 5);
+      console.log(object);
+
+      // get the employee with name 'Jess'
+      const objects = employees.find((obj) => obj.name === "Jess");
+      console.log(objects);
+
+      // find an Accountant with salary below '40000'
+      const object2 = employees.find((obj) => "Accountant" < "40000");
+      console.log(object2);
+      // find employees with salary above '70000'
+      const object3 = employees.find((obj) => obj.salary > "70000");
+      console.log(object3);
+    </script>
+  </body>
+</html>
